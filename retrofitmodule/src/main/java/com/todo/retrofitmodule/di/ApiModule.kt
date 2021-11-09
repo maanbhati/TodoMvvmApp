@@ -1,14 +1,13 @@
 package com.todo.retrofitmodule.di
 
-import android.util.Log
 import com.todo.retrofitmodule.api.Api
 import com.todo.retrofitmodule.api.Api.Companion.BASE_URL
+import com.todo.retrofitmodule.api.GzipRequestInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -17,21 +16,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class ApiModule {
 
-    @Provides
-    @Singleton
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor { message ->
-            Log.d("OkHttp3", message)
-        }.apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-    }
+    /*  @Provides
+      @Singleton
+      fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+          return HttpLoggingInterceptor { message ->
+              Log.d("OkHttp3", message)
+          }.apply {
+              level = HttpLoggingInterceptor.Level.BODY
+          }
+      }*/
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(logging: HttpLoggingInterceptor): OkHttpClient {
+    fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(logging)
+            .addInterceptor(GzipRequestInterceptor())
             .build()
     }
 
