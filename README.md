@@ -42,6 +42,12 @@ Get Your [App Key] and [App Id]for running the RecipeSearchApp.
    [DataBinding]: <https://developer.android.com/topic/libraries/data-binding>
    [Jacoco]: <https://docs.gradle.org/current/userguide/jacoco_plugin.html>
 
+### Project Requirement
+
+This app requires java 11 and gradle 7 configuration with Android Studio.
+
 ### Project Architecture
 
 This app uses [MVVM (Model View View-Model)] architecture.
+
+![alt text](https://github.com/maanbhati/TodoMvvmApp/blob/main/mvvm_architecture.png?raw=true)
