@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TodoMvvmApp</string>
+    <string name="search_hint">Search recipe</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="recipe_details">Name: %s \nType: %s \nCuisine: %s \nSource: %s</string>
+</resources>
